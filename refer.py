@@ -126,12 +126,12 @@ try:
 	a=list()
 	i=0
 	while(i<3):
-		x=random.randint(0,no)
+		x=random.randint(0,no-1)
 		if(x not in a):
 			a.append(x)
 			browser.execute_script("var elems = document.getElementsByClassName('select-box');elems["+str(x)+"].click();")
 			i=i+1
-except selenium.common.exceptions.WebDriverException:
+except WebDriverException:
 	print ("Exception handled!!")
 browser.execute_script("var elems = document.getElementsByClassName('btn small primary right btn-continue');for(var i= 0;i<elems.length;i++){elems[i].click();}")
 time.sleep(10)
