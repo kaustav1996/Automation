@@ -62,7 +62,7 @@ try:
 	browser.find_element_by_class_name('video-player-module').click()
 	browser.execute_script("var elems = document.getElementsByClassName('playback-speed-popover popover dark');for(var i= 0;i<elems.length;i++){elems[i].click();}")
 	
-except selenium.common.exceptions.WebDriverException:
+except WebDriverException:
 	time.sleep(30)
 	y=random.randint(1,4)
 	a=list()
@@ -79,12 +79,12 @@ except selenium.common.exceptions.WebDriverException:
 		a=list()
 		i=0
 		while(i<3):
-			x=random.randint(0,no)
+			x=random.randint(0,no-1)
 			if(x in a == False):
 				a.append(x)
 				browser.execute_script("var elems = document.getElementsByClassName('select-box');elems["+str(x)+"].click();")
 				i=i+1
-	except selenium.common.exceptions.WebDriverException:
+	except WebDriverException:
 		print ("Exception handled!!")
 	browser.execute_script("var elems = document.getElementsByClassName('btn small primary right btn-continue');for(var i= 0;i<elems.length;i++){elems[i].click();}")
 	time.sleep(10)
